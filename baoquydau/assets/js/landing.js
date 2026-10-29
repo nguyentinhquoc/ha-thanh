@@ -2,7 +2,7 @@
   "use strict";
 
   /**
-   * URL Web App của Google Sheet "Hà Thành" (script: google-apps-script/ha-thanh.gs ở thư mục gốc).
+   * URL Web App của Google Sheet "Hà Thành" (script: google-apps-script/ha-thanh.gs).
    * Để trống: form báo người dùng gọi hotline thay vì gửi.
    */
   const BOOKING_ENDPOINT = 'https://script.google.com/macros/s/AKfycby7TMXwWDpJraYREumsgCPfTF8cEg6pZvpE_1-oVT32MBwjH63t4yIxSwbG5oSH5sPNpA/exec';

@@ -4,6 +4,7 @@
  *   - ongcotay  (Hội chứng ống cổ tay)  → tab "Ống cổ tay"
  * Cài đặt: Tiện ích mở rộng → Apps Script → dán toàn bộ file này → chạy hàm setup
  *          → Triển khai → Ứng dụng web (Thực thi: Tôi, Quyền truy cập: Bất kỳ ai).
+ * File này giống hệt nhau ở 2 repo Ha-Thanh-Bao-Quy-Dau và Ha-Thanh-Ong-Co-Tay (1 script dùng chung) – sửa thì sửa cả hai.
  * Author: WaveBear
  */
 const SITES = {
