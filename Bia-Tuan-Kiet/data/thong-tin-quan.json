@@ -23,6 +23,8 @@
 
   "videoGioiThieu": "https://www.youtube.com/watch?v=RXv_uIN6e-Y",
 
+  "googleSheetUrl": "https://script.google.com/macros/s/AKfycbyRFEKvx7adLNbf6qPy5pIiE9eFz5jJd8Vw__F5WSeecigQW9qw3PuPW6ReqrcXqUkWYg/exec",
+
   "soLieu": [
     { "so": 60, "donVi": "+", "nhan": "Món ăn" },
     { "so": 15, "donVi": "h", "nhan": "Mở cửa mỗi ngày" },

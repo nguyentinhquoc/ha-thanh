@@ -11,17 +11,6 @@ AOS.init({
     offset: 55
 });
 
-/* Thông tin quán – đọc từ data/thong-tin-quan.json (render.js nạp vào window.SITE) */
-function shopInfo() {
-    var i = (window.SITE && SITE.info) || {};
-    var d = String(i.hotline || '').replace(/[^\d]/g, '');
-    return {
-        name: i.tenQuan || '',
-        phoneText: i.hotline || '',
-        zalo: d ? 'https://zalo.me/' + d : ''
-    };
-}
-
 /* Vị trí cuộn tới phần tử (trừ chiều cao navbar) */
 function scrollToEl(el, offset) {
     window.scrollTo({
@@ -101,27 +90,7 @@ $(document).ready(function() {
 });
 
 
-/* ===================== GỬI FORM QUA ZALO ===================== */
-// Sao chép chữ vào clipboard (chạy được cả khi mở file trực tiếp, không cần https)
-function copyText(text) {
-    var ok = false;
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-        ok = document.execCommand('copy');
-    } catch (e) {}
-    document.body.removeChild(ta);
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).catch(function() {});
-    }
-    return ok;
-}
-
+/* ===================== FORM ĐẶT BÀN ===================== */
 // Kiểm tra trường bắt buộc, trả về false nếu thiếu
 function checkRequired(ids) {
     var firstBad = null;
@@ -146,21 +115,52 @@ function val(id) {
     return document.getElementById(id).value.trim();
 }
 
-function sendViaZalo(btn, text, okId) {
-    var html = btn.innerHTML;
-    copyText(text);
-    var zalo = shopInfo().zalo;
-    if (zalo) window.open(zalo, '_blank', 'noopener');
-    btn.innerHTML = '<i class="fas fa-check"></i> Đã sao chép nội dung';
-    var ok = document.getElementById(okId);
-    ok.style.display = 'block';
-    ok.scrollIntoView({
+// Hiện 1 thông báo dưới form đặt bàn (resSent: đã nhận, resErr: lỗi), ẩn thông báo còn lại
+function showResMsg(id) {
+    ['resSent', 'resErr'].forEach(function(k) {
+        document.getElementById(k).style.display = k === id ? 'block' : 'none';
+    });
+    document.getElementById(id).scrollIntoView({
         behavior: 'smooth',
         block: 'nearest'
     });
-    setTimeout(function() {
-        btn.innerHTML = html;
-    }, 2500);
+}
+
+/* ===================== GỬI DỮ LIỆU VỀ GOOGLE SHEET ===================== */
+// Link Web App đặt trong data/thong-tin-quan.json → "googleSheetUrl" (script: google-apps-script/lau-nuong-tuan-kiet.gs)
+function sheetUrl() {
+    return (window.SITE && SITE.info && SITE.info.googleSheetUrl) || '';
+}
+
+// Trả về Promise<true> khi Google Sheet đã lưu xong dòng mới
+function sendToSheet(fields) {
+    if (!sheetUrl()) return Promise.resolve(false);
+    var data = new FormData();
+    Object.keys(fields).forEach(function(k) {
+        data.append(k, fields[k]);
+    });
+    data.append('trang', location.href);
+    var ctrl = new AbortController();
+    var timer = setTimeout(function() {
+        ctrl.abort();
+    }, 15000);
+    return fetch(sheetUrl(), {
+            method: 'POST',
+            body: data,
+            signal: ctrl.signal
+        })
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(res) {
+            return res.result === 'success';
+        })
+        .catch(function() {
+            return false;
+        })
+        .finally(function() {
+            clearTimeout(timer);
+        });
 }
 
 // Ngày đặt bàn mặc định = hôm nay, không cho chọn ngày đã qua
@@ -174,17 +174,42 @@ function sendViaZalo(btn, text, okId) {
 
 document.getElementById('resBtn').addEventListener('click', function() {
     if (!checkRequired(['resName', 'resPhone', 'resDate'])) return;
+    var btn = this;
+    var html = btn.innerHTML;
     var p = val('resDate').split('-');
-    var lines = [
-        'ĐẶT BÀN – ' + shopInfo().name,
-        'Họ tên: ' + val('resName'),
-        'SĐT: ' + val('resPhone'),
-        'Ngày: ' + p[2] + '/' + p[1] + '/' + p[0] + ' – Giờ: ' + val('resTime'),
-        'Số khách: ' + val('resGuests'),
-        'Khu vực: ' + val('resArea')
-    ];
-    if (val('resNote')) lines.push('Ghi chú: ' + val('resNote'));
-    sendViaZalo(this, lines.join('\n'), 'resOk');
+    var fields = {
+        form: 'dat-ban',
+        ho_ten: val('resName'),
+        so_dien_thoai: val('resPhone'),
+        ngay: p[2] + '/' + p[1] + '/' + p[0],
+        gio: val('resTime'),
+        so_khach: val('resGuests'),
+        khu_vuc: val('resArea'),
+        ghi_chu: val('resNote')
+    };
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+    sendToSheet(fields).then(function(saved) {
+        // Báo Telegram mỗi lượt đặt bàn (js/telegram.js), kèm trạng thái lưu Google Sheet
+        if (window.notifyTelegram) {
+            window.notifyTelegram('🍲 ĐẶT BÀN', [
+                'Họ tên: ' + fields.ho_ten,
+                'SĐT: ' + fields.so_dien_thoai,
+                'Ngày: ' + fields.ngay + ' – Giờ: ' + fields.gio,
+                'Số khách: ' + fields.so_khach,
+                'Khu vực: ' + fields.khu_vuc,
+                fields.ghi_chu && 'Ghi chú: ' + fields.ghi_chu,
+                saved ? '✅ Đã lưu Google Sheet' : '⚠️ Chưa lưu được vào Google Sheet – gọi lại khách ngay'
+            ]);
+        }
+        btn.disabled = false;
+        btn.innerHTML = html;
+        if (!saved) return showResMsg('resErr');
+        ['resName', 'resPhone', 'resNote'].forEach(function(id) {
+            document.getElementById(id).value = '';
+        });
+        showResMsg('resSent');
+    });
 });
 
 
@@ -301,15 +326,29 @@ document.getElementById('nlBtn').addEventListener('click', function() {
         return;
     }
     var btn = this;
-    btn.textContent = '✓ Đã đăng ký!';
-    btn.style.background = '#4ade80';
-    btn.style.color = '#222';
-    input.value = '';
-    setTimeout(function() {
-        btn.innerHTML = '<i class="fas fa-paper-plane me-1"></i>Đăng ký';
-        btn.style.background = '';
-        btn.style.color = '';
-    }, 3000);
+    btn.disabled = true;
+    sendToSheet({
+        form: 'uu-dai',
+        lien_he: v
+    }).then(function(saved) {
+        if (window.notifyTelegram) {
+            window.notifyTelegram('🎁 ĐĂNG KÝ ƯU ĐÃI', [
+                'SĐT / Email: ' + v,
+                saved ? '✅ Đã lưu Google Sheet' : '⚠️ Chưa lưu được vào Google Sheet'
+            ]);
+        }
+        // Gửi lỗi (hoặc chưa có link Google Sheet) → giữ nội dung để khách bấm thử lại
+        btn.disabled = false;
+        btn.textContent = saved ? '✓ Đã đăng ký!' : 'Chưa gửi được, thử lại';
+        btn.style.background = saved ? '#4ade80' : '#fca5a5';
+        btn.style.color = '#222';
+        if (saved) input.value = '';
+        setTimeout(function() {
+            btn.innerHTML = '<i class="fas fa-paper-plane me-1"></i>Đăng ký';
+            btn.style.background = '';
+            btn.style.color = '';
+        }, 3000);
+    });
 });
 
 /*  HIỆU ỨNG ĐẾM SỐ */

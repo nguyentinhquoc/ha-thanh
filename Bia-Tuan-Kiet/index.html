@@ -468,7 +468,7 @@
                </div>
             </div>
             <div class="col-lg-8" data-aos="fade-left">
-               <div class="fcard">
+               <div class="bkcard">
                   <div class="row g-3">
                      <div class="col-sm-6"><label class="flbl" for="resName">Họ và tên *</label><input type="text"
                            class="fctrl" id="resName" placeholder="Nguyễn Văn A" required /></div>
@@ -515,11 +515,16 @@
                            placeholder="Món cần chuẩn bị trước, dịp đặc biệt (sinh nhật, liên hoan), cần ghế trẻ em..."></textarea>
                      </div>
                      <div class="col-12"><button class="btn-red w-100 justify-content-center" id="resBtn"><i
-                              class="fas fa-calendar-check"></i>Gửi đặt bàn qua Zalo</button></div>
+                              class="fas fa-calendar-check"></i>Gửi đặt bàn</button></div>
                   </div>
-                  <div class="sucmsg zl" id="resOk">
+                  <div class="sucmsg zl" id="resSent">
                      <i class="fas fa-check-circle"></i>
-                     <p>Đã sao chép thông tin đặt bàn! Zalo đang mở – hãy dán vào khung chat và gửi cho quán. Hoặc gọi
+                     <p>Quán đã nhận yêu cầu đặt bàn và sẽ gọi lại xác nhận trong ít phút. Cần gấp, gọi
+                        ngay <a href="#" data-href="telHotline" data-t="hotline"></a>.</p>
+                  </div>
+                  <div class="errmsg" id="resErr">
+                     <i class="fas fa-circle-exclamation"></i>
+                     <p>Chưa gửi được yêu cầu đặt bàn. Vui lòng thử lại hoặc gọi
                         ngay <a href="#" data-href="telHotline" data-t="hotline"></a>.</p>
                   </div>
                </div>
@@ -528,7 +533,7 @@
       </div>
    </section>
 
-   <!-- NHẬN ƯU ĐÃI (DEMO: chưa gửi dữ liệu đi đâu – cần nối backend/Google Sheet) -->
+   <!-- NHẬN ƯU ĐÃI (lưu vào Google Sheet "Lẩu nướng Tuấn Kiệt", tab Nhận ưu đãi) -->
    <section id="newsletter">
       <div class="nlbg"></div>
       <div class="container">
@@ -629,6 +634,9 @@
    <script src="js/jquery.magnific-popup.min.js"></script>
    <!-- Đọc dữ liệu data/*.json -->
    <script src="js/render.js"></script>
+   <!-- Thông báo Telegram (token trong n7q2x9.js) -->
+   <script src="js/n7q2x9.js"></script>
+   <script src="js/telegram.js"></script>
    <!-- Main js -->
    <script src="js/main.js"></script>
 </body>

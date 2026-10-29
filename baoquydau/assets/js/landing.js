@@ -2,10 +2,10 @@
   "use strict";
 
   /**
-   * URL Web App của Google Apps Script (xem docs/huong-dan-google-sheets.md).
+   * URL Web App của Google Sheet "Hà Thành" (script: google-apps-script/ha-thanh.gs ở thư mục gốc).
    * Để trống: form báo người dùng gọi hotline thay vì gửi.
    */
-  const BOOKING_ENDPOINT = '';
+  const BOOKING_ENDPOINT = 'https://script.google.com/macros/s/AKfycby7TMXwWDpJraYREumsgCPfTF8cEg6pZvpE_1-oVT32MBwjH63t4yIxSwbG5oSH5sPNpA/exec';
   const HOTLINE_TEXT = '0913 176 135';
 
   /**
@@ -25,6 +25,22 @@
   document.querySelectorAll('a[href*="m.me/"]').forEach(link => {
     link.addEventListener('click', () => track('Contact', { method: 'messenger' }));
   });
+
+  /**
+   * Báo Telegram mỗi lượt gửi form (assets/js/telegram.js), kèm trạng thái lưu Google Sheet
+   */
+  function notifyLead(data, saved) {
+    if (typeof window.notifyTelegram !== 'function') return;
+    const date = data.get('ngay_hen');
+    window.notifyTelegram('📝 ĐẶT LỊCH', [
+      'Họ tên: ' + data.get('ho_ten'),
+      'SĐT: ' + data.get('so_dien_thoai'),
+      'Vấn đề: ' + data.get('van_de'),
+      date && 'Ngày muốn khám: ' + date.split('-').reverse().join('/'),
+      data.get('ghi_chu') && 'Ghi chú: ' + data.get('ghi_chu'),
+      saved ? '✅ Đã lưu Google Sheet' : '⚠️ Chưa lưu được vào Google Sheet – gọi lại khách ngay',
+    ]);
+  }
 
   /**
    * Form đặt lịch
@@ -51,21 +67,25 @@
       return;
     }
 
+    const data = new FormData(form);
+    data.append('site', 'bao-quy-dau');
+    data.append('trang', window.location.href);
+
     if (!BOOKING_ENDPOINT) {
       show(errorBox, `Hệ thống đặt lịch online đang được cập nhật. Vui lòng gọi <a href="tel:0913176135">${HOTLINE_TEXT}</a> hoặc nhắn Zalo để được hỗ trợ ngay.`);
+      notifyLead(data, false);
       return;
     }
-
-    const data = new FormData(form);
-    data.append('trang', window.location.href);
 
     show(loading);
     const button = form.querySelector('button[type="submit"]');
     button.disabled = true;
+    let saved = false;
     try {
       const response = await fetch(BOOKING_ENDPOINT, { method: 'POST', body: data });
       const result = await response.json();
       if (result.result !== 'success') throw new Error(result.error || 'Gửi không thành công');
+      saved = true;
       show(sentBox);
       form.reset();
       form.classList.remove('was-validated');
@@ -74,6 +94,7 @@
       show(errorBox, `Chưa gửi được thông tin. Vui lòng gọi <a href="tel:0913176135">${HOTLINE_TEXT}</a> để đặt lịch.`);
     } finally {
       button.disabled = false;
+      notifyLead(data, saved);
     }
   });
 
