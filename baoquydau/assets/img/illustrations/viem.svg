@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="t">
+  <title id="t">Minh hoạ viêm bao quy đầu tái phát</title>
+  <defs>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffd3c2"/>
+      <stop offset="1" stop-color="#f3aa90"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0" stop-color="#ff6b6b" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ff6b6b" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="bodyClip">
+      <path d="M165,100 C163,128 130,142 130,186 L130,320 C130,350 155,365 200,365 C245,365 270,350 270,320 L270,186 C270,142 237,128 235,100 Z"/>
+    </clipPath>
+  </defs>
+  <circle cx="200" cy="205" r="175" fill="#e8f3ff"/>
+  <circle cx="200" cy="170" r="160" fill="url(#glow)"/>
+  <ellipse cx="200" cy="372" rx="86" ry="10" fill="#c9dcf2"/>
+  <!-- outline underlay -->
+  <path d="M165,100 C163,128 130,142 130,186 L130,320 C130,350 155,365 200,365 C245,365 270,350 270,320 L270,186 C270,142 237,128 235,100 Z" fill="#d07a62" stroke="#d07a62" stroke-width="10" stroke-linejoin="round"/>
+  <!-- body -->
+  <path d="M165,100 C163,128 130,142 130,186 L130,320 C130,350 155,365 200,365 C245,365 270,350 270,320 L270,186 C270,142 237,128 235,100 Z" fill="url(#skin)"/>
+  <ellipse cx="200" cy="130" rx="95" ry="58" fill="#ff5a5a" opacity=".32" clip-path="url(#bodyClip)"/>
+  <ellipse cx="200" cy="100" rx="35" ry="11" fill="#e8806a" stroke="#d07a62" stroke-width="4"/>
+  <path d="M160,142 Q200,155 240,142" fill="none" stroke="#e2907a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M152,200 Q148,262 154,318" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="10" stroke-linecap="round"/>
+  <!-- face: đau -->
+  <path d="M154,222 L180,232" fill="none" stroke="#3b2a25" stroke-width="5" stroke-linecap="round"/>
+  <path d="M246,222 L220,232" fill="none" stroke="#3b2a25" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="170" cy="250" r="9" fill="#3b2a25"/>
+  <circle cx="230" cy="250" r="9" fill="#3b2a25"/>
+  <circle cx="167" cy="246" r="3" fill="#fff"/>
+  <circle cx="227" cy="246" r="3" fill="#fff"/>
+  <path d="M178,262 c0,0 -6,9 -6,13 a6,6 0 0 0 12,0 c0,-4 -6,-13 -6,-13z" fill="#7cc4ff"/>
+  <ellipse cx="152" cy="276" rx="16" ry="9" fill="#ff7070" opacity=".85"/>
+  <ellipse cx="248" cy="276" rx="16" ry="9" fill="#ff7070" opacity=".85"/>
+  <path d="M184,292 q16,-14 32,0" fill="none" stroke="#3b2a25" stroke-width="5" stroke-linecap="round"/>
+  <!-- germs -->
+  <g transform="translate(86 150)">
+    <circle r="22" fill="#7bd389" stroke="#3fa65a" stroke-width="3"/>
+    <circle cx="0" cy="-27" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="26" cy="-6" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="-25" cy="8" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="-7" cy="-2" r="3.5" fill="#1f3a2a"/>
+    <circle cx="7" cy="-2" r="3.5" fill="#1f3a2a"/>
+    <path d="M-12,-10 L-3,-7 M12,-10 L3,-7" stroke="#1f3a2a" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-6,9 q6,-5 12,0" fill="none" stroke="#1f3a2a" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(318 128) scale(.85)">
+    <circle r="22" fill="#7bd389" stroke="#3fa65a" stroke-width="3"/>
+    <circle cx="20" cy="-18" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="-22" cy="-14" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="4" cy="27" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="-7" cy="-2" r="3.5" fill="#1f3a2a"/>
+    <circle cx="7" cy="-2" r="3.5" fill="#1f3a2a"/>
+    <path d="M-12,-10 L-3,-7 M12,-10 L3,-7" stroke="#1f3a2a" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-6,9 q6,-5 12,0" fill="none" stroke="#1f3a2a" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(322 292) scale(.7)">
+    <circle r="22" fill="#7bd389" stroke="#3fa65a" stroke-width="3"/>
+    <circle cx="-20" cy="-18" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="25" cy="8" r="5" fill="#7bd389" stroke="#3fa65a" stroke-width="2"/>
+    <circle cx="-7" cy="-2" r="3.5" fill="#1f3a2a"/>
+    <circle cx="7" cy="-2" r="3.5" fill="#1f3a2a"/>
+    <path d="M-12,-10 L-3,-7 M12,-10 L3,-7" stroke="#1f3a2a" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-6,9 q6,-5 12,0" fill="none" stroke="#1f3a2a" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <path d="M110,70 l-6,22 M126,78 l-14,18" stroke="#ff4d4d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M290,64 l6,22 M274,72 l14,18" stroke="#ff4d4d" stroke-width="5" stroke-linecap="round"/>
+</svg>

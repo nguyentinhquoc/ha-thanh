@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="t">
+  <title id="t">Minh hoạ khoẻ mạnh, tự tin sau khi cắt bao quy đầu</title>
+  <defs>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffdcc7"/>
+      <stop offset="1" stop-color="#f3b896"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2f8bea"/>
+      <stop offset="1" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="205" r="175" fill="#e8f3ff"/>
+  <circle cx="60" cy="230" r="7" fill="#cfe3fb"/>
+  <circle cx="345" cy="190" r="6" fill="#cfe3fb"/>
+  <ellipse cx="200" cy="372" rx="86" ry="10" fill="#c9dcf2"/>
+  <!-- outline underlay -->
+  <path d="M130,205 C130,130 165,100 200,100 C235,100 270,130 270,205 L270,320 C270,350 245,365 200,365 C155,365 130,350 130,320 Z" fill="#d58a68" stroke="#d58a68" stroke-width="10" stroke-linejoin="round"/>
+  <!-- body -->
+  <path d="M130,205 C130,130 165,100 200,100 C235,100 270,130 270,205 L270,320 C270,350 245,365 200,365 C155,365 130,350 130,320 Z" fill="url(#skin)"/>
+  <path d="M138,182 Q200,206 262,182" fill="none" stroke="#e8a586" stroke-width="4" stroke-linecap="round"/>
+  <path d="M160,128 Q150,150 152,168" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="9" stroke-linecap="round"/>
+  <path d="M152,214 Q148,266 154,318" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="10" stroke-linecap="round"/>
+  <!-- face: vui vẻ -->
+  <path d="M156,250 q12,-15 24,0" fill="none" stroke="#3b2a25" stroke-width="6" stroke-linecap="round"/>
+  <path d="M212,250 q12,-15 24,0" fill="none" stroke="#3b2a25" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="150" cy="272" rx="15" ry="9" fill="#ff9b9b" opacity=".75"/>
+  <ellipse cx="242" cy="272" rx="15" ry="9" fill="#ff9b9b" opacity=".75"/>
+  <path d="M176,270 Q196,300 216,270 Z" fill="#7a3b2e" stroke="#3b2a25" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M188,284 q8,-6 16,0 q-8,6 -16,0z" fill="#ff8a8a"/>
+  <!-- shield -->
+  <path d="M300,214 l44,15 v31 c0,30 -21,48 -44,58 c-23,-10 -44,-28 -44,-58 v-31 z" fill="url(#shield)" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M281,264 l13,13 l25,-27" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="262" cy="292" rx="13" ry="11" fill="url(#skin)" stroke="#d58a68" stroke-width="4"/>
+  <!-- sparkles -->
+  <path d="M0,-16 L4.5,-4.5 L16,0 L4.5,4.5 L0,16 L-4.5,4.5 L-16,0 L-4.5,-4.5 Z" transform="translate(98 118)" fill="#ffc94d"/>
+  <path d="M0,-16 L4.5,-4.5 L16,0 L4.5,4.5 L0,16 L-4.5,4.5 L-16,0 L-4.5,-4.5 Z" transform="translate(306 112) scale(.8)" fill="#ffc94d"/>
+  <path d="M0,-16 L4.5,-4.5 L16,0 L4.5,4.5 L0,16 L-4.5,4.5 L-16,0 L-4.5,-4.5 Z" transform="translate(84 302) scale(.6)" fill="#7bd389"/>
+  <path d="M0,-12 C-6,-22 -22,-16 -16,-2 C-12,6 0,14 0,14 C0,14 12,6 16,-2 C22,-16 6,-22 0,-12 Z" transform="translate(330 160) scale(.8)" fill="#ff6b8a"/>
+</svg>

@@ -1,0 +1,74 @@
+{
+  "uuDai": {
+    "nhan": "Ưu đãi cuối tuần",
+    "tieuDe": ["Giảm 20%", "Combo Lẩu +"],
+    "tieuDeNoiBat": "Đồ Chiên",
+    "moTa": "Thứ 6 – Chủ nhật: gọi 1 nồi lẩu bất kỳ kèm 2 món đồ chiên ngũ vị hoặc mắm cháy tỏi, giảm ngay 20% tổng hóa đơn đồ ăn. Áp dụng cho nhóm từ 4 người.",
+    "giaCu": "600k",
+    "giaMoi": "499k",
+    "anh": "img/off-img.jpg",
+    "nut": "Đặt bàn nhận ưu đãi",
+    "ketThuc": "2026-10-25 23:59"
+  },
+
+  "hanhTrinh": [
+    {
+      "nam": "2019",
+      "tieuDe": "Khai trương quán nhỏ",
+      "moTa": "Tuấn Kiệt mở cửa với vài bàn lẩu và đồ nướng trong ngõ 292 Lê Thái Tổ. Khách quen truyền tai nhau nhờ hương vị đồng quê đậm đà."
+    },
+    {
+      "nam": "2021",
+      "tieuDe": "Mở rộng sân vườn",
+      "moTa": "Cải tạo khu sân vườn rộng rãi, giăng đèn dây lung linh và bổ sung thực đơn đồ chiên ngũ vị, mắm cháy tỏi."
+    },
+    {
+      "nam": "2023",
+      "tieuDe": "Phòng VIP & nhận tiệc",
+      "moTa": "Ra mắt phòng VIP riêng tư, bãi đỗ ô tô và dịch vụ đặt tiệc sinh nhật, liên hoan, tất niên trọn gói."
+    },
+    {
+      "nam": "2026",
+      "tieuDe": "Phục vụ cả tuần & giao tận nơi",
+      "moTa": "Phục vụ từ 9:00 đến 00:00 tất cả các ngày và có mặt trên ShopeeFood, GrabFood – món ngon Tuấn Kiệt đến tận nhà bạn."
+    }
+  ],
+
+  "doiNguBep": [
+    { "ten": "Nguyễn Văn Hùng", "vaiTro": "Bếp trưởng", "kinhNghiem": "15 năm kinh nghiệm", "anh": "img/chefs/1.jpg", "facebook": "#", "tiktok": "#", "instagram": "#" },
+    { "ten": "Trần Minh Đức", "vaiTro": "Chuyên gia nướng", "kinhNghiem": "10 năm kinh nghiệm", "anh": "img/chefs/2.jpg", "facebook": "#", "tiktok": "#", "instagram": "#" },
+    { "ten": "Phạm Thị Lan", "vaiTro": "Bếp lẩu & nước dùng", "kinhNghiem": "8 năm kinh nghiệm", "anh": "img/chefs/3.jpg", "facebook": "#", "tiktok": "#", "instagram": "#" },
+    { "ten": "Lê Quang Huy", "vaiTro": "Quản lý quầy bia", "kinhNghiem": "6 năm kinh nghiệm", "anh": "img/chefs/4.jpg", "facebook": "#", "tiktok": "#", "instagram": "#" }
+  ],
+
+  "danhGia": [
+    {
+      "ten": "Chị Mai Anh",
+      "vaiTro": "Khách quen",
+      "soSao": 5,
+      "noiDung": "Lẩu ếch măng cay ở đây đúng vị, cay vừa phải mà ếch rất chắc thịt. Cả nhà mình tuần nào cũng ghé, nhân viên nhiệt tình lắm.",
+      "anh": "img/testimonial/1.jpg"
+    },
+    {
+      "ten": "Anh Hoàng Nam",
+      "vaiTro": "Liên hoan công ty",
+      "soSao": 5,
+      "noiDung": "Công ty mình đặt phòng VIP liên hoan 20 người, món lên nhanh, gà rang muối và bò cháy tiêu xanh được khen nhiều nhất. Có chỗ đỗ ô tô rất tiện.",
+      "anh": "img/testimonial/2.jpg"
+    },
+    {
+      "ten": "Thu Trang",
+      "vaiTro": "Reviewer ẩm thực Ninh Bình",
+      "soSao": 5,
+      "noiDung": "Ngồi sân vườn buổi tối mát mẻ, đèn dây rất chill. Đồ chiên mắm cháy tỏi đưa bia cực kỳ, giá cả hợp lý.",
+      "anh": "img/testimonial/3.jpg"
+    },
+    {
+      "ten": "Anh Quốc Việt",
+      "vaiTro": "Khách du lịch",
+      "soSao": 5,
+      "noiDung": "Đi Tràng An về muộn vẫn có chỗ ăn vì quán mở tới 12 giờ đêm. Lẩu tôm bầu thanh ngọt, ăn xong ấm bụng – nhất định sẽ quay lại!",
+      "anh": "img/testimonial/4.jpg"
+    }
+  ]
+}

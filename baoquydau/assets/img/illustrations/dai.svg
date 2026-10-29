@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="t">
+  <title id="t">Minh hoạ dài bao quy đầu</title>
+  <defs>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffdcc7"/>
+      <stop offset="1" stop-color="#f3b896"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="205" r="175" fill="#e8f3ff"/>
+  <circle cx="58" cy="262" r="7" fill="#cfe3fb"/>
+  <circle cx="342" cy="250" r="6" fill="#cfe3fb"/>
+  <ellipse cx="200" cy="372" rx="86" ry="10" fill="#c9dcf2"/>
+  <!-- outline underlay -->
+  <path d="M200,180 C200,112 232,74 282,90" fill="none" stroke="#d58a68" stroke-width="96" stroke-linecap="round"/>
+  <path d="M150,170 C136,180 130,190 130,205 L130,320 C130,350 155,365 200,365 C245,365 270,350 270,320 L270,205 C270,190 264,180 250,170 Z" fill="#d58a68" stroke="#d58a68" stroke-width="10" stroke-linejoin="round"/>
+  <!-- long tip + body -->
+  <path d="M200,180 C200,112 232,74 282,90" fill="none" stroke="url(#skin)" stroke-width="86" stroke-linecap="round"/>
+  <path d="M150,170 C136,180 130,190 130,205 L130,320 C130,350 155,365 200,365 C245,365 270,350 270,320 L270,205 C270,190 264,180 250,170 Z" fill="url(#skin)"/>
+  <ellipse cx="318" cy="104" rx="8" ry="15" transform="rotate(20 318 104)" fill="#e39a7a" stroke="#d58a68" stroke-width="4"/>
+  <path d="M246,66 Q238,92 252,124" fill="none" stroke="#e3a283" stroke-width="4" stroke-linecap="round"/>
+  <path d="M216,84 Q206,114 222,146" fill="none" stroke="#e3a283" stroke-width="4" stroke-linecap="round"/>
+  <path d="M152,206 Q148,264 154,318" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="10" stroke-linecap="round"/>
+  <!-- face: ngại ngùng -->
+  <path d="M156,222 q11,-8 22,-2" fill="none" stroke="#3b2a25" stroke-width="5" stroke-linecap="round"/>
+  <path d="M222,220 q11,-6 22,2" fill="none" stroke="#3b2a25" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="166" cy="246" rx="7" ry="10" fill="#3b2a25"/>
+  <ellipse cx="226" cy="246" rx="7" ry="10" fill="#3b2a25"/>
+  <circle cx="164" cy="242" r="2.5" fill="#fff"/>
+  <circle cx="224" cy="242" r="2.5" fill="#fff"/>
+  <ellipse cx="152" cy="272" rx="17" ry="10" fill="#ff9b9b" opacity=".8"/>
+  <ellipse cx="244" cy="272" rx="17" ry="10" fill="#ff9b9b" opacity=".8"/>
+  <path d="M188,282 q8,-7 16,0" fill="none" stroke="#3b2a25" stroke-width="5" stroke-linecap="round"/>
+  <!-- question bubble -->
+  <circle cx="94" cy="142" r="36" fill="#fff" stroke="#9cc5f2" stroke-width="4"/>
+  <path d="M122,166 l16,14 l-24,-4 z" fill="#fff" stroke="#9cc5f2" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="94" cy="142" r="32" fill="#fff"/>
+  <text x="94" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#1565c0">?</text>
+</svg>

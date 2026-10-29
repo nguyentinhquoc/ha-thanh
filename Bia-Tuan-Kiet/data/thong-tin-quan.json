@@ -1,0 +1,39 @@
+{
+  "tenQuan": "Tuấn Kiệt Beer House",
+  "hotline": "0787.056.669",
+  "soPhu": "0388.393.521",
+  "email": "lienhe@tuankietbeerhouse.vn",
+  "diaChi": "Số 40, Ngõ 292 Đ. Lê Thái Tổ, P. Hoa Lư, Ninh Bình",
+  "diaChiNgan": "Ngõ 292 Lê Thái Tổ, Hoa Lư, Ninh Bình",
+  "toaDo": { "viDo": 20.27519, "kinhDo": 105.95919 },
+  "gioMoCuaNgan": "9:00 – 00:00 hằng ngày",
+  "gioMoCua": "9:00 – 00:00, tất cả các ngày trong tuần",
+
+  "mangXaHoi": {
+    "facebook": "#",
+    "tiktok": "#",
+    "instagram": "#",
+    "youtube": "#"
+  },
+
+  "giaoHang": {
+    "shopeefood": "#",
+    "grabfood": "#"
+  },
+
+  "videoGioiThieu": "https://www.youtube.com/watch?v=RXv_uIN6e-Y",
+
+  "soLieu": [
+    { "so": 60, "donVi": "+", "nhan": "Món ăn" },
+    { "so": 15, "donVi": "h", "nhan": "Mở cửa mỗi ngày" },
+    { "so": 7, "donVi": "năm", "nhan": "Phục vụ" },
+    { "so": 5000, "donVi": "+", "nhan": "Lượt khách/tháng" }
+  ],
+
+  "bangGio": [
+    { "icon": "fa-calendar-day", "ten": "Thứ 2 – Chủ nhật", "gio": "9:00 – 00:00", "mo": true },
+    { "icon": "fa-calendar-day", "ten": "Ngày lễ, Tết", "gio": "Vẫn mở cửa", "mo": true },
+    { "icon": "fa-beer-mug-empty", "ten": "Giờ vàng bia tươi", "gio": "14:00 – 17:00", "mo": true },
+    { "icon": "fa-champagne-glasses", "ten": "Đặt tiệc, liên hoan", "gio": "Báo trước 1 ngày", "mo": true }
+  ]
+}
