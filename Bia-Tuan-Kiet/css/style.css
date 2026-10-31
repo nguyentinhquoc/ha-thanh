@@ -137,15 +137,16 @@ img {
 }
 .bsub {
   font-size: 0.62rem;
+  font-weight:bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #aaa;
+  color: #d32f2f;
 }
 .navbar-nav .nav-link {
   font-size: 0.87rem;
   font-weight: 500;
   color: #333 !important;
-  padding: 26px 13px !important;
+  padding: 26px 23px !important;
   position: relative;
 }
 .navbar-nav .nav-link::after {
